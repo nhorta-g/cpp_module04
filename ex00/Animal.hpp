@@ -1,9 +1,7 @@
 #ifndef ANIMAL_HPP
 # define ANIMAL_HPP
 
-# include "Cat.hpp"
-# include "Dog.hpp"
-# include <string.h>
+# include <string>
 # include <iostream>
 
 class Animal {

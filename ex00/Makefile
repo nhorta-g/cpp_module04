@@ -1,13 +1,13 @@
 NAME		=	ex00
 
-CC			=	c++
+CXX			=	c++
 
 SRCS		=	main.cpp \
 				Animal.cpp \
 				Dog.cpp \
 				Cat.cpp
 
-CFLAGS	=	-Wall -Wextra -Werror -std=c++98 #-fsanitize=address
+CXXFLAGS	=	-Wall -Wextra -Werror -g -std=c++98 #-fsanitize=address
 
 RM			=	rm -f
 
@@ -16,7 +16,7 @@ OBJS		=	$(SRCS:%.cpp=%.o)
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-			$(CC) $(OBJS) $(CXXFLAGS) -o $(NAME)
+			$(CXX) $(OBJS) $(CXXFLAGS) -o $(NAME)
 
 clean:
 			$(RM) $(OBJS)
