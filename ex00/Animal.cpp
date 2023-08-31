@@ -8,21 +8,27 @@ Animal::Animal(void) {
 
 Animal::Animal(const Animal &original) {
 	std::cout << "Animal copy constructor called." << std::endl;
+	*this = original;
 }
 
-Animal& Animal::operator = (const operator &original) {
+Animal& Animal::operator = (const Animal &original) {
 	std::cout << "Animal assignment operator called." << std::endl;
+	this->_type = original._type;
+	return (*this);
 }
 
 Animal::~Animal(void) {
 	std::cout << "Animal default destructor called." << std::endl;
 }
 
+////////////SUBJECT MEMBER FUNCTIONS////////////
+
+void Animal::makeSound(void) {
+	std::cout << "Animal playing it's sound." << std::endl;
+}
+
 //////////////GETTERS AND SETTERS///////////////
 
 std::string Animal::getType(void) {
-	return(this->type);
+	return(this->_type);
 }
-
-////////////SUBJECT MEMBER FUNCTIONS////////////
-

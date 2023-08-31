@@ -9,8 +9,11 @@ class Cat : public Animal {
 		Cat (const Cat &original);
 		Cat &operator = (const Cat &original);
 		~Cat (void);
+
+		void makeSound(void);
+
 	protected:
-		std::string type;
+		std::string _type;
 };
 
 #endif
