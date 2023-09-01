@@ -7,7 +7,7 @@ SRCS		=	main.cpp \
 				Dog.cpp \
 				Cat.cpp
 
-CXXFLAGS	=	-Wall -Wextra -Werror -g -std=c++98 #-fsanitize=address
+CXXFLAGS	=	-Wall -Wextra -Werror -g -Wshadow -std=c++98 #-fsanitize=address
 
 RM			=	rm -f
 

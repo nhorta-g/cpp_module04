@@ -23,12 +23,12 @@ Animal::~Animal(void) {
 
 ////////////SUBJECT MEMBER FUNCTIONS////////////
 
-void Animal::makeSound(void) {
+void Animal::makeSound(void) const{
 	std::cout << "Animal playing it's sound." << std::endl;
 }
 
 //////////////GETTERS AND SETTERS///////////////
 
-std::string Animal::getType(void) {
+std::string Animal::getType(void) const {
 	return(this->_type);
 }

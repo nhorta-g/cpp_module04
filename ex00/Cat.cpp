@@ -24,6 +24,6 @@ Cat::~Cat(void) {
 
 ////////////SUBJECT MEMBER FUNCTIONS////////////
 
-void Animal::Animal::makeSound(void) {
+void Cat::makeSound(void) const{
 	std::cout << "MIAU, MIAU, MIIIAAAAAAAUUUU!" << std::endl;
 }

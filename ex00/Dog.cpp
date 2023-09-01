@@ -24,6 +24,6 @@ Dog::~Dog(void) {
 
 ////////////SUBJECT MEMBER FUNCTIONS////////////
 
-void Animal::Animal::makeSound(void) {
+void Dog::makeSound(void) const{
 	std::cout << "WOOFFFF, WOOOFFFFF, WOOOOOOFFFFFF!!!" << std::endl;
 }
