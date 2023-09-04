@@ -2,7 +2,7 @@
 
 //////////////////CONSTRUCTORS//////////////////
 
-Cat::Cat(void) {
+Cat::Cat(void) : Animal() {
 	std::cout << "Cat Default constructor called...\nMiauuu!" << std::endl;
 	this->_type = "Cat";
 }
@@ -26,4 +26,10 @@ Cat::~Cat(void) {
 
 void Cat::makeSound(void) const{
 	std::cout << "MIAU, MIAU, MIIIAAAAAAAUUUU!" << std::endl;
+}
+
+////////////GETTERS///////////
+
+std::string	Cat::getType() const{
+	return (this->_type);
 }

@@ -2,7 +2,7 @@
 
 //////////////////CONSTRUCTORS//////////////////
 
-Dog::Dog(void) {
+Dog::Dog(void) : Animal() {
 	std::cout << "Dog Default constructor called...\nWOF WOF!" << std::endl;
 	this->_type = "Dog";
 }
@@ -26,4 +26,10 @@ Dog::~Dog(void) {
 
 void Dog::makeSound(void) const{
 	std::cout << "WOOFFFF, WOOOFFFFF, WOOOOOOFFFFFF!!!" << std::endl;
+}
+
+////////////GETTERS///////////
+
+std::string	Dog::getType() const{
+	return (this->_type);
 }

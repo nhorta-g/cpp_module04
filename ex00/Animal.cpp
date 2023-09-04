@@ -30,5 +30,5 @@ void Animal::makeSound(void) const{
 //////////////GETTERS AND SETTERS///////////////
 
 std::string Animal::getType(void) const {
-	return(this->_type);
+	return(_type);
 }
