@@ -1,4 +1,4 @@
-NAME		=	ex00
+NAME		=	ex01
 
 CXX			=	c++
 
@@ -6,10 +6,9 @@ SRCS		=	main.cpp \
 				Animal.cpp \
 				Dog.cpp \
 				Cat.cpp \
-				WrongAnimal.cpp \
-				WrongCat.cpp
+				BrainAnimal.cpp
 
-CXXFLAGS	=	-Wall -Wextra -Werror -g -Wshadow -std=c++98 #-fsanitize=address
+CXXFLAGS	=	-Wall -Wextra -Werror -g -Wshadow -std=c++98 -fsanitize=address
 
 RM			=	rm -f
 
