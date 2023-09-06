@@ -4,6 +4,8 @@
 # include "Animal.hpp"
 # include "Brain.hpp"
 
+# define SIZE_IDEAS 100
+
 class Brain {
 	public:
 		Brain (void);
@@ -17,6 +19,6 @@ class Brain {
 		void	setIdeas(std::string idea);
 
 	protected:
-		std::string _ideas[100];
+		std::string _ideas[SIZE_IDEAS];
 };
 #endif

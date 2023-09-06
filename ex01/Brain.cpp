@@ -30,8 +30,6 @@ void	Brain::read(void) {
     }
 }
 
-//////////////GETTERS AND SETTERS///////////////
-
 std::string	Brain::getIdeas(int index) {
 	if (_ideas[index].empty())
 		return (NULL);

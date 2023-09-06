@@ -54,5 +54,13 @@ void Cat::makeSound(void) const{
 	std::cout << "MIIIAAAAAAAUUUU!" << std::endl;
 }
 
-////////////GETTERS///////////
+////////////GETTERS AND SETTERS///////////
+
+void Cat::getIdeas() {
+    this->_catBrain->showIdeas();
+}
+
+void Cat::setIdea(std::string idea) {
+    this->_catBrain->setIdeas(_ideas);
+}
 
