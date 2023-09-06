@@ -2,20 +2,19 @@
 # define CAT_HPP
 
 # include "Animal.hpp"
+# include "Brain.hpp"
 
 class Cat: public Animal {
 	public:
 		Cat (void);
-		Cat (const Cat &original);
-		Cat &operator = (const Cat &original);
+		Cat (const Cat &copy);
+		Cat &operator = (const Cat &copy);
 		~Cat (void);
 
 		void makeSound(void) const;
 
-		virtual std::string	getType( void ) const;
-
-	protected:
-		std::string _type;
+	private:
+		Brain *_catBrain;
 };
 
 #endif

@@ -8,8 +8,8 @@ class Animal {
 	public:
 		Animal (void);
 		Animal (std::string type);
-		Animal (const Animal &original);
-		Animal &operator = (const Animal &original);
+		Animal (const Animal &copy);
+		Animal &operator = (const Animal &copy);
 		~Animal (void);
 
 		void makeSound(void) const;

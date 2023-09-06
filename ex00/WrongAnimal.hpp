@@ -8,8 +8,8 @@ class WrongAnimal {
 	public:
 		WrongAnimal (void);
 		WrongAnimal (std::string type);
-		WrongAnimal (const WrongAnimal &original);
-		WrongAnimal &operator = (const WrongAnimal &original);
+		WrongAnimal (const WrongAnimal &copy);
+		WrongAnimal &operator = (const WrongAnimal &copy);
 		~WrongAnimal (void);
 
 		void makeSound(void) const;

@@ -11,14 +11,14 @@ WrongAnimal::WrongAnimal(std::string type) : _type(type) {
     std::cout << "WrongAnimal constructor called with type " << this->_type << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &original) {
+WrongAnimal::WrongAnimal(const WrongAnimal &copy) {
 	std::cout << "WrongAnimal copy constructor called." << std::endl;
-	*this = original;
+	*this = copy;
 }
 
-WrongAnimal& WrongAnimal::operator = (const WrongAnimal &original) {
+WrongAnimal& WrongAnimal::operator = (const WrongAnimal &copy) {
 	std::cout << "WrongAnimal assignment operator called." << std::endl;
-	this->_type = original._type;
+	this->_type = copy._type;
 	return (*this);
 }
 

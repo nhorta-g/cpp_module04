@@ -6,7 +6,7 @@ SRCS		=	main.cpp \
 				Animal.cpp \
 				Dog.cpp \
 				Cat.cpp \
-				BrainAnimal.cpp
+				Brain.cpp
 
 CXXFLAGS	=	-Wall -Wextra -Werror -g -Wshadow -std=c++98 -fsanitize=address
 

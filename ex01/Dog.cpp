@@ -6,14 +6,14 @@ Dog::Dog(void) : Animal("Dog") {
 	std::cout << "Dog Default constructor called...\nWOF WOF!" << std::endl;
 }
 
-Dog::Dog(const Dog &original) : Animal(original.getType()) {
+Dog::Dog(const Dog &copy) : Animal(copy.getType()) {
 	std::cout << "Dog copy constructor called...\nWOF WOF!" << std::endl;
-	*this = original;
+	*this = copy;
 }
 
-Dog& Dog::operator = (const Dog &original) {
+Dog& Dog::operator = (const Dog &copy) {
 	std::cout << "Dog assigment operator called...\nWOF WOF!" << std::endl;
-	this->_type = original._type;
+	this->_type = copy._type;
 	return (*this);
 }
 

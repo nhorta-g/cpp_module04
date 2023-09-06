@@ -2,18 +2,18 @@
 
 //////////////////CONSTRUCTORS//////////////////
 
-Cat::Cat(void) : Animal("Cat") {
+Cat::Cat(void) {
 	std::cout << "Cat Default constructor called...\nMiauuu!" << std::endl;
 }
 
-Cat::Cat(const Cat &original) : Animal(original.getType()) {
+Cat::Cat(const Cat &copy) : Animal(copy.getType()) {
 	std::cout << "Cat copy constructor called...\nMiauuu!" << std::endl;
-	*this = original;
+	*this = copy;
 }
 
-Cat& Cat::operator = (const Cat &original) {
+Cat& Cat::operator = (const Cat &copy) {
 	std::cout << "Cat assigment operator called...\nMiauuu!" << std::endl;
-	this->_type = original._type;
+	this->_type = copy._type;
 	return (*this);
 }
 
