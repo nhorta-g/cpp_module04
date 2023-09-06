@@ -11,9 +11,10 @@ class Brain {
 		Brain &operator = (const Brain &copy);
 		~Brain (void);
 
-	std::string getIdeas(int index);
+		void read(void);
 
-	void	setIdeas(std::string idea);
+		std::string getIdeas(int index);
+		void	setIdeas(std::string idea);
 
 	protected:
 		std::string _ideas[100];

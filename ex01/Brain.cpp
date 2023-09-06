@@ -22,10 +22,18 @@ Brain::~Brain(void) {
 	std::cout << "Brain default destructor called." << std::endl;
 }
 
+void	Brain::read(void) {
+	for (int i = 0; i < 100; i++) {
+        if (!this->_ideas[i].empty()) {
+            std::cout << this->_ideas[i] << std::endl;
+        }
+    }
+}
+
 //////////////GETTERS AND SETTERS///////////////
 
 std::string	Brain::getIdeas(int index) {
-	if (_ideas[index] == "")
+	if (_ideas[index].empty())
 		return (NULL);
 	return(_ideas[index]);
 }
@@ -33,9 +41,4 @@ std::string	Brain::getIdeas(int index) {
 void		Brain::setIdeas(std::string idea) {
 	for(int i = 0; i < 100; i++)
 		_ideas[i] = idea;
-
 }
-
-
-
-

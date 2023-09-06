@@ -14,7 +14,7 @@ class Cat: public Animal {
 		void makeSound(void) const;
 
 	private:
-		Brain *_catBrain;
+		Brain* _catBrain;
 };
 
 #endif

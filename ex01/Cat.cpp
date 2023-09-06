@@ -26,22 +26,19 @@ Source: www.geeksforgeeks.org
 
 //////////////////CONSTRUCTORS//////////////////
 
-Cat::Cat(void) {
+Cat::Cat(void) : _catBrain(new Brain) {
 	std::cout << "Cat Default constructor called...\nMiauuu!" << std::endl;
 	_type = "cat";
-	_catBrain = new Brain();
 }
 
-Cat::Cat(const Cat &copy) : Animal(copy.getType()) {
+Cat::Cat(const Cat &copy) : Animal(), _catBrain(new Brain) {
 	std::cout << "Cat copy constructor called...\nMiauuu!" << std::endl;
-	_catBrain = new Brain();
-	*this = copy;
+	(*this) = copy;
 }
 
 Cat& Cat::operator = (const Cat &copy) {
 	std::cout << "Cat assigment operator called...\nMiauuu!" << std::endl;
-	_type = copy._type;
-	delete _catBrain;
+	_type = copy.getType();
 	_catBrain = new Brain(*(copy._catBrain));
 	return (*this);
 }
