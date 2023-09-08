@@ -29,7 +29,7 @@ int main()
     delete i;
     delete meta;
 
-
+/*
 	/////////////Wrong Cat///////////////
 
     std::cout << std::endl << "WRONG CASE CONSTRUCTORS:" << std::endl << std::endl;
@@ -46,5 +46,5 @@ int main()
 	delete wrong;
     delete k;
 
-	return 0;
+	return 0;*/
 }

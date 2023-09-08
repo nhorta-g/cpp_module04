@@ -34,6 +34,7 @@ void	Brain::setIdea(std::string idea) {
 	for(int i = 0; i < SIZE_IDEAS; i++)
 		if (_ideas[i].empty()) {
 			_ideas[i] = idea;
+			std::cout << "Idea set." << std::endl;
 			return;
 		}
 }

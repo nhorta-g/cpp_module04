@@ -11,11 +11,6 @@ class Dog : public Animal {
 		~Dog (void);
 
 		void makeSound(void) const;
-
-		virtual std::string	getType( void ) const;
-
-	protected:
-		std::string _type;
 };
 
 #endif

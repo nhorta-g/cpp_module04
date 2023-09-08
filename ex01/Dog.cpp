@@ -26,18 +26,18 @@ Source: www.geeksforgeeks.org
 
 //////////////////CONSTRUCTORS//////////////////
 
-Dog::Dog(void) : _dogBrain(new Brain) {
-	std::cout << "Dog Default constructor called...\n" << std::endl;
+Dog::Dog(void) : Animal("Dog"), _dogBrain(new Brain) {
+	std::cout << "Dog Default constructor called.\n" << std::endl;
 	_type = "Dog";
 }
 
 Dog::Dog(const Dog &copy) : Animal(), _dogBrain(new Brain) {
-	std::cout << "Dog copy constructor called...\n" << std::endl;
+	std::cout << "Dog copy constructor called.\n" << std::endl;
 	(*this) = copy;
 }
 
 Dog& Dog::operator = (const Dog &copy) {
-	std::cout << "Dog assigment operator called...\n" << std::endl;
+	std::cout << "Dog assigment operator called.\n" << std::endl;
 	_type = copy.getType();
 	_dogBrain = new Brain(*(copy._dogBrain));
 	return (*this);
@@ -45,7 +45,7 @@ Dog& Dog::operator = (const Dog &copy) {
 
 Dog::~Dog(void) {
 	delete _dogBrain;
-	std::cout << "Dog Default destructor called...\n" << std::endl;
+	std::cout << "Dog Default destructor called.\n" << std::endl;
 }
 
 ////////////SUBJECT MEMBER FUNCTIONS////////////

@@ -26,20 +26,22 @@ Source: www.geeksforgeeks.org
 
 //////////////////CONSTRUCTORS//////////////////
 
-Cat::Cat(void) : _catBrain(new Brain) {
-	std::cout << "Cat Default constructor called...\n" << std::endl;
+Cat::Cat(void) : Animal("Cat"), _catBrain(new Brain) {
+	std::cout << "Cat Default constructor called.\n" << std::endl;
 	_type = "cat";
 }
 
 Cat::Cat(const Cat &copy) : Animal(), _catBrain(new Brain) {
-	std::cout << "Cat copy constructor called...\n" << std::endl;
+	std::cout << "Cat copy constructor called.\n" << std::endl;
 	(*this) = copy;
 }
 
 Cat& Cat::operator = (const Cat &copy) {
-	std::cout << "Cat assigment operator called...\n" << std::endl;
-	_type = copy.getType();
-	_catBrain = new Brain(*(copy._catBrain));
+	std::cout << "Cat assigment operator called.\n" << std::endl;
+	if (this != &copy) {
+		_type = copy.getType();
+		_catBrain = new Brain(*(copy._catBrain));
+	}
 	return (*this);
 }
 
@@ -50,7 +52,7 @@ Cat::~Cat(void) {
 
 ////////////SUBJECT MEMBER FUNCTIONS////////////
 
-void Cat::makeSound(void) const{
+void Cat::makeSound(void) const {
 	std::cout << "MIIIAAAAAAAUUUU!" << std::endl;
 }
 
@@ -60,7 +62,6 @@ void Cat::setIdea(std::string idea) {
     this->_catBrain->setIdea(idea);
 }
 
-void Cat::showIdea(int index) const{
+void Cat::showIdea(int index) const {
     this->_catBrain->showIdea(index);
 }
-
