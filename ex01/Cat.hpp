@@ -13,8 +13,8 @@ class Cat: public Animal {
 
 		void makeSound(void) const;
 
-		void getIdeas(void);
 		void setIdea(std::string idea);
+		void showIdea(int index) const;
 
 	private:
 		Brain* _catBrain;

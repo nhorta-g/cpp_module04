@@ -22,7 +22,7 @@ Brain::~Brain(void) {
 	std::cout << "Brain default destructor called." << std::endl;
 }
 
-void	Brain::read(void) {
+void	Brain::printIdeas(void) {
 	for (int i = 0; i < 100; i++) {
         if (!this->_ideas[i].empty()) {
             std::cout << this->_ideas[i] << std::endl;
@@ -30,13 +30,17 @@ void	Brain::read(void) {
     }
 }
 
-std::string	Brain::getIdeas(int index) {
-	if (_ideas[index].empty())
-		return (NULL);
-	return(_ideas[index]);
+void	Brain::setIdea(std::string idea) {
+	for(int i = 0; i < SIZE_IDEAS; i++)
+		if (_ideas[i].empty()) {
+			_ideas[i] = idea;
+			return;
+		}
 }
 
-void		Brain::setIdeas(std::string idea) {
-	for(int i = 0; i < 100; i++)
-		_ideas[i] = idea;
+void	Brain::showIdea(int index) {
+	if (index < 0 || index > 99)
+		std::cout << "Error, index must be be between 0 and 99" << std::endl;
+	else
+		std::cout << _ideas[index] << std::endl;
 }

@@ -1,36 +1,91 @@
-# include "Animal.hpp"
-# include "Dog.hpp"
-# include "Cat.hpp"
-# include "Brain.hpp"
+#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "Brain.hpp"
 
-int main()
+#define NUMBER_ANIMALS 4
+
+void test_array(void)
 {
-	{
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	delete j;//should not create a leak
-	delete i;
-	...
-	return 0;
+    std::cout << std::endl << "###############################" << std::endl;
+    std::cout << "TEST LEAKS IN ARRAY OF ANIMALS" << std::endl;
+    std::cout  << "###############################" << std::endl << std::endl;
+    Animal *animals[NUMBER_ANIMALS];
 
-	std::cout << "CONSTRUCTORS:" << std::endl << std::endl;
+    for (int i = 0; i < NUMBER_ANIMALS; i++)
+    {
+        if (i < NUMBER_ANIMALS / 2) {
+            animals[i] = new Dog;
+            ((Dog *) animals[i])->setIdea("I am a Dog!");
+            ((Dog *) animals[i])->showIdea(0);
+        }
+        else {
+            animals[i] = new Cat;
+            ((Cat *) animals[i])->setIdea("I am a Cat!");
+            ((Cat *) animals[i])->showIdea(0);
+        }
+    }
+    std::cout << std::endl;
+    for (int i = 0; i < NUMBER_ANIMALS; i++)
+        delete animals[i];
+}
 
-	int num = 4;
-	Animal *array[num];
+void test_simple_leaks(void)
+{
+    std::cout << std::endl << "###############################" << std::endl;
+    std::cout << "TEST LEAKS" << std::endl;
+    std::cout  << "###############################" << std::endl << std::endl;
+    const Animal* j = new Dog();
+    const Animal* i = new Cat();
+    std::cout << std::endl;
+    delete j;
+    delete i;
+}
 
-	for (int i = 0; i < num; i++) {
-		if (i % 2 == 0)
-			array[i] = new Dog();
-		else
-			array[i] = new Cat();
-	}
-	std::cout << "------------" << std::endl;
+void test_copy(void)
+{
+    std::cout << std::endl << "###############################" << std::endl;
+    std::cout << "TEST COPY" << std::endl;
+    std::cout  << "###############################" << std::endl << std::endl;
 
-	std::cout << std::endl << "DESTRUCTORS:" << std::endl << std::endl;
+    Dog d1;
+    d1.setIdea("I am dog");
+    Dog d2(d1);
+    Cat c1;
+    c1.setIdea("I am cat");
+    Cat c2(c1);
 
-	for (int i = 0; i < num; i++)
-		delete array[i];
+    d1.showIdea(0);
+    d2.showIdea(0);
+    c1.showIdea(0);
+    c2.showIdea(0);
 
-	/////////////Wrong Cat///////////////
-	return 0;
+    d1 = d2;
+    c1 = c2;
+    std::cout << std::endl;
+}
+
+void test_copy_animals(void)
+{
+    std::cout << std::endl << "###############################" << std::endl;
+    std::cout << "TEST COPY CLASS ANIMAL" << std::endl;
+    std::cout  << "###############################" << std::endl << std::endl;
+
+    Animal* j = new Dog();
+    Animal* i = new Cat();
+    std::cout << std::endl;
+    *i = *j;
+    std::cout << std::endl;
+    delete i;
+    delete j;
+}
+
+int main(void)
+{
+	test_array();
+	test_simple_leaks();
+	test_copy();
+	test_copy_animals();
+
+    return (0);
 }

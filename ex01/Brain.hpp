@@ -15,8 +15,9 @@ class Brain {
 
 		void read(void);
 
-		std::string getIdeas(int index);
-		void	setIdeas(std::string idea);
+		void printIdeas(void);
+		void showIdea(int index);
+		void setIdea(std::string idea);
 
 	protected:
 		std::string _ideas[SIZE_IDEAS];

@@ -4,7 +4,7 @@
 # include "Animal.hpp"
 # include "Brain.hpp"
 
-class Dog : public Animal {
+class Dog: public Animal {
 	public:
 		Dog (void);
 		Dog (const Dog &copy);
@@ -13,10 +13,11 @@ class Dog : public Animal {
 
 		void makeSound(void) const;
 
-		virtual std::string	getType( void ) const;
+		void setIdea(std::string idea);
+		void showIdea(int index) const;
 
-	protected:
-		std::string _type;
+	private:
+		Brain* _dogBrain;
 };
 
 #endif

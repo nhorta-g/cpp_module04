@@ -27,17 +27,17 @@ Source: www.geeksforgeeks.org
 //////////////////CONSTRUCTORS//////////////////
 
 Cat::Cat(void) : _catBrain(new Brain) {
-	std::cout << "Cat Default constructor called...\nMiauuu!" << std::endl;
+	std::cout << "Cat Default constructor called...\n" << std::endl;
 	_type = "cat";
 }
 
 Cat::Cat(const Cat &copy) : Animal(), _catBrain(new Brain) {
-	std::cout << "Cat copy constructor called...\nMiauuu!" << std::endl;
+	std::cout << "Cat copy constructor called...\n" << std::endl;
 	(*this) = copy;
 }
 
 Cat& Cat::operator = (const Cat &copy) {
-	std::cout << "Cat assigment operator called...\nMiauuu!" << std::endl;
+	std::cout << "Cat assigment operator called...\n" << std::endl;
 	_type = copy.getType();
 	_catBrain = new Brain(*(copy._catBrain));
 	return (*this);
@@ -45,7 +45,7 @@ Cat& Cat::operator = (const Cat &copy) {
 
 Cat::~Cat(void) {
 	delete _catBrain;
-	std::cout << "Cat Default destructor called...\nMiauuu!" << std::endl;
+	std::cout << "Cat Default destructor called...\n" << std::endl;
 }
 
 ////////////SUBJECT MEMBER FUNCTIONS////////////
@@ -56,11 +56,11 @@ void Cat::makeSound(void) const{
 
 ////////////GETTERS AND SETTERS///////////
 
-void Cat::getIdeas() {
-    this->_catBrain->showIdeas();
+void Cat::setIdea(std::string idea) {
+    this->_catBrain->setIdea(idea);
 }
 
-void Cat::setIdea(std::string idea) {
-    this->_catBrain->setIdeas(_ideas);
+void Cat::showIdea(int index) const{
+    this->_catBrain->showIdea(index);
 }
 
