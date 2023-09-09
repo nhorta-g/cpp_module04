@@ -26,15 +26,8 @@ Animal::~Animal(void) {
 	std::cout << "Animal default destructor called." << std::endl;
 }
 
-////////////SUBJECT MEMBER FUNCTIONS////////////
-
-void Animal::makeSound(void) const{
-	std::cout << "Animal playing it's sound." << std::endl;
-}
-
 //////////////GETTERS AND SETTERS///////////////
 
 std::string Animal::getType(void) const {
 	return(_type);
 }
- 
