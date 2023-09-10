@@ -39,8 +39,8 @@ Dog::Dog(const Dog &copy) : Animal(), _dogBrain(new Brain) {
 Dog& Dog::operator = (const Dog &copy) {
 	std::cout << "Dog assigment operator called.\n" << std::endl;
 	if (this != &copy) {
-		_type = copy.getType();
-		delete _dogBrain;
+		this->_type = copy.getType();
+		delete this->_dogBrain;
 		_dogBrain = new Brain(*(copy._dogBrain));
 	}
 	return (*this);

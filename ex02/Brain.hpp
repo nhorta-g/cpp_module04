@@ -4,7 +4,7 @@
 # include "Animal.hpp"
 # include "Brain.hpp"
 
-# define SIZE_IDEAS 3
+# define SIZE_IDEAS 100
 class Brain {
 	public:
 		Brain (void);
