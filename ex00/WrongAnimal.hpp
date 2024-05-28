@@ -3,11 +3,10 @@
 
 # include <string>
 # include <iostream>
-
 class WrongAnimal {
 	public:
 		WrongAnimal (void);
-		WrongAnimal (std::string type);
+		//WrongAnimal (std::string type);
 		WrongAnimal (const WrongAnimal &copy);
 		WrongAnimal &operator = (const WrongAnimal &copy);
 		~WrongAnimal (void);

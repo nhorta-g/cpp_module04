@@ -2,29 +2,29 @@
 
 //////////////////CONSTRUCTORS//////////////////
 
-WrongCat::WrongCat(void) : WrongAnimal("WrongCat") {
-	std::cout << "WrongCat Default constructor called...\nMiauuu!" << std::endl;
+WrongCat::WrongCat(void) : _type("WrongCat") {
+	std::cout << "WrongCat Default constructor called..." << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat &copy) : WrongAnimal(copy.getType()) {
-	std::cout << "WrongCat copy constructor called...\nMiauuu!" << std::endl;
-	*this = copy;
+WrongCat::WrongCat(const WrongCat &copy) : WrongAnimal(copy) {
+	std::cout << "WrongCat copy constructor called..." << std::endl;
 }
 
 WrongCat& WrongCat::operator = (const WrongCat &copy) {
-	std::cout << "WrongCat assigment operator called...\nMiauuu!" << std::endl;
-	this->_type = copy._type;
+	std::cout << "WrongCat assigment operator called..." << std::endl;
+	if (this != &copy)
+		WrongAnimal::operator = (copy);
 	return (*this);
 }
 
 WrongCat::~WrongCat(void) {
-	std::cout << "WrongCat Default destructor called...\nMiauuu!" << std::endl;
+	std::cout << "WrongCat Default destructor called..." << std::endl;
 }
 
 ////////////SUBJECT MEMBER FUNCTIONS////////////
 
 void WrongCat::makeSound(void) const{
-	std::cout << "MIAU, MIAU, MIIIAAAAAAAUUUU!" << std::endl;
+	std::cout << "MIIIAAAAAAAUUUU!" << std::endl;
 }
 
 ////////////GETTERS///////////
