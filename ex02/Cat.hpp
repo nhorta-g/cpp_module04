@@ -1,10 +1,10 @@
 #ifndef CAT_HPP
 # define CAT_HPP
 
-# include "Animal.hpp"
+# include "AAnimal.hpp"
 # include "Brain.hpp"
 
-class Cat: public Animal {
+class Cat: public AAnimal {
 	public:
 		Cat (void);
 		Cat (const Cat &copy);
@@ -17,7 +17,7 @@ class Cat: public Animal {
 		void showIdea(void) const;
 
 	private:
-		Brain* _catBrain;
+		Brain *_brain;
 };
 
 #endif

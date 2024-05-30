@@ -17,7 +17,7 @@ class Cat: public Animal {
 		void showIdea(void) const;
 
 	private:
-		Brain* _catBrain;
+		Brain *_brain;
 };
 
 #endif

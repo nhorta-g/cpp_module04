@@ -2,23 +2,22 @@
 
 //////////////////CONSTRUCTORS//////////////////
 
-Animal::Animal(void) {
-	this->_type = "Animal";
-	std::cout << "Animal default constructor called." << std::endl;
+Animal::Animal(void) : _type("Just parent Animal") {
+	std::cout << "Animal default constructor called..." << std::endl;
 }
-
+/*
 Animal::Animal(std::string type) : _type(type) {
     std::cout << "Animal constructor called with type " << this->_type << std::endl;
 }
-
-Animal::Animal(const Animal &copy) {
-	std::cout << "Animal copy constructor called." << std::endl;
-	*this = copy;
+*/
+Animal::Animal(const Animal &copy) : _type(copy._type) {
+	std::cout << "Animal copy constructor called..." << std::endl;
 }
 
 Animal& Animal::operator = (const Animal &copy) {
-	std::cout << "Animal assignment operator called." << std::endl;
-	this->_type = copy._type;
+	std::cout << "Animal assignment operator called..." << std::endl;
+	if (this != &copy)
+		this->_type = copy._type;
 	return (*this);
 }
 
@@ -29,7 +28,7 @@ Animal::~Animal(void) {
 ////////////SUBJECT MEMBER FUNCTIONS////////////
 
 void Animal::makeSound(void) const{
-	std::cout << "Animal playing it's sound." << std::endl;
+	std::cout << "Parent class animal makesound()." << std::endl;
 }
 
 //////////////GETTERS AND SETTERS///////////////
@@ -37,4 +36,3 @@ void Animal::makeSound(void) const{
 std::string Animal::getType(void) const {
 	return(_type);
 }
- 

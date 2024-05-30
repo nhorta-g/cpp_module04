@@ -29,8 +29,7 @@ WrongAnimal::~WrongAnimal(void) {
 ////////////SUBJECT MEMBER FUNCTIONS////////////
 
 void WrongAnimal::makeSound(void) const{
-	std::cout << "Shouldn't print cause it's the parent's class makesound(), " << std::endl;
-	std::cout << "if makesound was virtual that would't happen." << std::endl;
+	std::cout << "Parent class sound from wrong animal";
 }
 
 //////////////GETTERS AND SETTERS///////////////

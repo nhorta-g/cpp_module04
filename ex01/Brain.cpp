@@ -3,39 +3,43 @@
 //////////////////CONSTRUCTORS//////////////////
 
 Brain::Brain(void) {
-	std::cout << "Brain default constructor called." << std::endl;
+	std::cout << "Brain default constructor called..." << std::endl;
+	for (int i = 0; i < SIZE_IDEAS; i++)
+		this->_ideas[i] = "";
 }
 
 Brain::Brain(const Brain &copy) {
-	std::cout << "Brain copy constructor called." << std::endl;
-	*this = copy;
+	std::cout << "Brain copy constructor called..." << std::endl;
+	for (int i = 0; i < SIZE_IDEAS; i++)
+		this->_ideas[i] = copy._ideas[i];
 }
 
 Brain& Brain::operator = (const Brain &copy) {
-	std::cout << "Brain assignment operator called." << std::endl;
-	for (int i = 0; i < SIZE_IDEAS; i++)
-		this->_ideas[i] = copy._ideas[i];
+	std::cout << "Brain assignment operator called..." << std::endl;
+	if (this != &copy) {
+		for (int i = 0; i < SIZE_IDEAS; i++)
+			this->_ideas[i] = copy._ideas[i];
+	}
 	return (*this);
 }
 
 Brain::~Brain(void) {
-	std::cout << "Brain default destructor called." << std::endl;
+	std::cout << "Brain destructor called..." << std::endl;
 }
 
-void	Brain::setIdea(std::string idea) {
+void	Brain::setIdea(const std::string &idea) {
 	for(int i = 0; i < SIZE_IDEAS; i++)
-		if (_ideas[i].empty()) {
-			_ideas[i] = idea;
-			std::cout << "Idea set." << " ... ";
+		if (this->_ideas[i].empty()) {
+			this->_ideas[i] = idea;
+			std::cout << "Idea: " << GREEN << idea << MAGENTA << " > SET" << RESET << std::endl;
+			return;
 		}
-	std::cout << std::endl << std::endl;
 }
 
-void	Brain::showIdea(void) {
+void	Brain::showIdea(void) const{
 	for (int i = 0; i < SIZE_IDEAS; i++) {
 		if (!this->_ideas[i].empty()) {
-			std::cout << this->_ideas[i] << " ... ";
+			std::cout << GREEN << this->_ideas[i] << RESET << std::endl;
 		}
 	}
-	std::cout << std::endl << std::endl;
 }

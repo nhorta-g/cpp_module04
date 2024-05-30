@@ -29,7 +29,7 @@ Animal::~Animal(void) {
 ////////////SUBJECT MEMBER FUNCTIONS////////////
 
 void Animal::makeSound(void) const{
-	std::cout << "Shouldn't print cause it's the parent class animal makesound()." << std::endl;
+	std::cout << "Parent class animal makesound()." << std::endl;
 }
 
 //////////////GETTERS AND SETTERS///////////////

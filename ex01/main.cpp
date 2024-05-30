@@ -3,113 +3,69 @@
 #include "Cat.hpp"
 #include "Brain.hpp"
 
-#define NUMBER_ANIMALS 4
+#define ARRAY_SIZE 4
 
-void test_simple_leaks(void)
-{
-	std::cout << std::endl <<  std::endl << "############TEST BASIC LEAKS################" << std::endl << std::endl;
-	std::cout <<"---------------CONSTRUCTORS CALLED-----------------" << std::endl << std::endl;
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	std::cout << std::endl;
+void test_delete_animalArray() {
+	std::cout << std::endl << RED << "-------------TEST DELETE ANIMAL ARRAY--------------" << RESET << std::endl;
+	std::cout << std::endl << GREEN <<"------------------CONSTRUCTORS:--------------------" << RESET << std::endl;
 
-	std::cout <<"--------------DESTRUCTORS CALLED-----------------" << std::endl << std::endl;
-	delete j;
-	delete i;
-}
+	const Animal* animalArray[ARRAY_SIZE];
 
-void test_array(void)
-{
-	std::cout << std::endl <<  std::endl << "############TEST ARRAY OF ANIMALS################" << std::endl << std::endl;
-	std::cout <<"---------------CONSTRUCTORS CALLED-----------------" << std::endl << std::endl;
-	Animal *animals[NUMBER_ANIMALS];
-
-	for (int i = 0; i < NUMBER_ANIMALS; i++)
-	{
-		if (i < NUMBER_ANIMALS / 2)
-		{
-			animals[i] = new Dog;
-			((Dog *) animals[i])->setIdea("I like barking to neighbours");
-		}
-		else
-		{
-			animals[i] = new Cat;
-			((Cat *) animals[i])->setIdea("I like puuuuuuuuriiing");
-		}
+	// Fill half the array with Dog objects and the other half with Cat objects
+	for (int i = 0; i < ARRAY_SIZE / 2; ++i) {
+		animalArray[i] = new Dog();
 	}
-
-	for (int i = 0; i < NUMBER_ANIMALS; i++) {
-		std::cout << "I am nice " << animals[i]->getType() << ", I like to do ";
-		animals[i]->makeSound();
-		std::cout << " And my thoughts are: ";
-		((Cat *)animals[i])->showIdea();
-		std::cout << std::endl;
+	for (int i = ARRAY_SIZE / 2; i < ARRAY_SIZE; ++i) {
+		animalArray[i] = new Cat();
 	}
-
-	std::cout << std::endl;
-
-	std::cout << "--------------DESTRUCTORS CALLED-----------------" << std::endl << std::endl;
-	for (int i = 0; i < NUMBER_ANIMALS; i++)
-	{
-		delete animals[i];
+	std::cout << std::endl << CYAN << "-------------------DESTRUCTORS:--------------------" << RESET << std::endl;
+	// Delete every Animal in the array
+	for (int i = 0; i < ARRAY_SIZE; ++i) {
+		delete animalArray[i];
 	}
 }
+void test_deep_copy() {
 
-void test_copy_animals(void)
-{
-	std::cout << std::endl <<  std::endl << "############TEST COPY ANIMALS################" << std::endl << std::endl;
-	std::cout <<"---------------CONSTRUCTORS CALLED-----------------" << std::endl << std::endl;
+	std::cout << std::endl << RED << "-------------------TEST DEEP COPY----------------------" << RESET << std::endl;
 
-	Animal* j = new Dog();
-	Animal* i = new Cat();
+	std::cout << std::endl << CYAN << "-------------------COPY CONTRUCTOR--------------------" << RESET << std::endl;
 
-	std::cout << std::endl;
-	*i = *j;
-	std::cout << std::endl;
+	Dog originalDog;
+	originalDog.setIdea("Chase the cat");
+	Dog copiedDog(originalDog);
 
-	std::cout << "--------------DESTRUCTORS CALLED-----------------" << std::endl << std::endl;
-	delete i;
-	delete j;
-}
+	originalDog.setIdea("Eat the bone");
+	copiedDog.showIdea();
+	std::cout << YELLOW << " <- Last idea should be: Chase the cat" << RESET << std::endl << std::endl;
 
-void test_copy_contructor(void)
-{
-	std::cout << std::endl <<  std::endl << "############TEST COPY CONSTRUCTOR################" << std::endl << std::endl;
-	std::cout <<"---------------CONSTRUCTORS CALLED-----------------" << std::endl << std::endl;
-    Cat c1;
-	c1.setIdea("I like chasing mouses!");
-	Cat c2(c1);
+	Cat originalCat;
+	originalCat.setIdea("Sleep on the sofa");
+	Cat copiedCat = originalCat;
 
-	std::cout << std::endl << " Ideas from d1: " << std::endl << std::endl;
-	c1.showIdea();
-	std::cout << " Ideas from d2: " << std::endl<< std::endl;
-	c2.showIdea();
+	originalCat.setIdea("Climb the tree");
+	copiedCat.showIdea();
+	std::cout << YELLOW << " <- Last idea should be: Sleep on the sofa" << RESET << std::endl << std::endl;
 
-	std::cout << std::endl;
-	std::cout << "--------------DESTRUCTORS CALLED-----------------" << std::endl << std::endl;
-}
+	std::cout << std::endl << CYAN << "----------------ASSIGMENT OPERATOR-------------------" << RESET << std::endl;
 
-void test_assigment_operator(void)
-{
-	std::cout << std::endl <<  std::endl << "############TEST ASSIGMENT OPERATOR################" << std::endl << std::endl;
-	std::cout <<"---------------CONSTRUCTORS CALLED-----------------" << std::endl << std::endl;
-    Dog d1;
-	d1.setIdea("I am dog");
-	Dog d2 = d1;
+	Dog assignedDog;
+	assignedDog = originalDog;
 
-	std::cout << std::endl << " Ideas from d1: " << std::endl << std::endl;
-	d1.showIdea();
-	std::cout << " Ideas from d2: " << std::endl<< std::endl;
-	d2.showIdea();
+	originalDog.setIdea("Bark at the mailman");
+	assignedDog.showIdea();
+	std::cout << YELLOW << " <- Last idea should be: Eat the bone" << RESET << std::endl << std::endl;
 
-	std::cout << std::endl;
-	std::cout << "--------------DESTRUCTORS CALLED-----------------" << std::endl << std::endl;
+	Cat assignedCat;
+	assignedCat = originalCat;
+
+	originalCat.setIdea("Play with yarn");
+	assignedCat.showIdea();
+	std::cout << YELLOW << " <- Last idea should be: Climb the tree" << RESET << std::endl <<std::endl;
+
+	std::cout << std::endl << CYAN << "-------------------DESTRUCTORS:--------------------" << RESET << std::endl;
 }
 
 int main(void) {
-	test_simple_leaks();
-	test_array();
-	test_copy_animals();
-	test_copy_contructor();
-	test_assigment_operator();
+	test_delete_animalArray();
+	test_deep_copy();
 }

@@ -1,5 +1,5 @@
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef AANIMAL_HPP
+# define AANIMAL_HPP
 
 # include <string>
 # include <iostream>
@@ -11,15 +11,14 @@
 #define MAGENTA "\033[0;35m"
 #define CYAN "\033[0;36m"
 #define RESET "\033[0m"
-class Animal {
+class AAnimal {
 	public:
-		Animal (void);
-		//Animal (std::string type);
-		Animal (const Animal &copy);
-		Animal &operator = (const Animal &copy);
-		virtual ~Animal (void);
+		AAnimal (void);
+		AAnimal (const AAnimal &copy);
+		AAnimal &operator = (const AAnimal &copy);
+		virtual ~AAnimal (void);
 
-		virtual void makeSound(void) const;
+		virtual void makeSound(void) const = 0;
 
 		std::string getType(void) const;
 

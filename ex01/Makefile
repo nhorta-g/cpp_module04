@@ -8,7 +8,7 @@ SRCS		=	main.cpp \
 				Cat.cpp \
 				Brain.cpp
 
-CXXFLAGS	=	-Wall -Wextra -Werror -g -Wshadow -std=c++98 -fsanitize=address
+CXXFLAGS	=	-Wall -Wextra -Werror -g -Wshadow -std=c++98 #-fsanitize=address
 
 RM			=	rm -f
 

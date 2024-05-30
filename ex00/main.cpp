@@ -5,27 +5,27 @@
 # include "WrongCat.hpp"
 
 void basic_test(void) {
-	std::cout << std::endl << RED << "---------------CORRECT CLASS CLASS-----------------" << RESET << std::endl;
+	std::cout << std::endl << RED << "---------------TEST CORRECT CLASS------------------" << RESET << std::endl;
 	std::cout << std::endl << GREEN <<"------------------CONSTRUCTORS:--------------------" << RESET << std::endl;
 	const Animal* meta = new Animal();
 	const Animal animal;
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	const Animal* dog = new Dog();
+	const Animal* cat = new Cat();
 
 	std::cout << std::endl << YELLOW << "---------------------GETTYPE-----------------------" << RESET << std::endl;
-	std::cout << j->getType() << "                <- (Should print dog)" << std::endl;
-	std::cout << i->getType() << "                <- (Should print cat)" << std::endl;
+	std::cout << dog->getType() << "                <- (Should print dog)" << std::endl;
+	std::cout << cat->getType() << "                <- (Should print cat)" << std::endl;
 	std::cout << meta->getType() << " <- (Should print parent animal)" << std::endl;
 	std::cout << animal.getType() << " <- (Should print parent animal)" << std::endl;
 
 	std::cout << std::endl << YELLOW << "--------------------MAKESOUND----------------------" <<RESET << std::endl;
-	i->makeSound(); //will output the dog sound!
-	j->makeSound(); //will output the cat sound!
-	meta->makeSound();
+	cat->makeSound(); //will output the dog sound!
+	dog->makeSound(); //will output the cat sound!
+	meta->makeSound(); //will output the animal sound!
 
 	std::cout << std::endl << CYAN << "-------------------DESTRUCTORS:--------------------" << RESET << std::endl;
-	delete j;
-	delete i;
+	delete dog;
+	delete cat;
 	delete meta;
 }
 
@@ -36,11 +36,12 @@ void wrong_cat_test(void) {
 	const WrongAnimal* wrongcat = new WrongCat();
 
 	std::cout << std::endl << YELLOW << "----------------WRONG CASE GETTYPE-----------------" << RESET << std::endl;
-	std::cout << wrongcat->getType() << " " << std::endl;
+	std::cout << wrongcat->getType() <<  std::endl;
 	std::cout << std::endl << YELLOW << "--------------WRONG CASE MAKESOUND:----------------" << RESET << std::endl;
-	wrong->makeSound();
+	//wrong->makeSound();
 	wrongcat->makeSound();
-
+	std::cout << " << (It prints the parent Animal" << std::endl <<
+		"class makesound(), if makesound was virtual it would print the child class cat sound, MIAUU.)" << std::endl;
 	std::cout << std::endl << CYAN << "--------------WRONG CASE DESTRUCTORS:--------------" << RESET << std::endl;
 	delete wrong;
 	delete wrongcat;

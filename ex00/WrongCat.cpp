@@ -2,7 +2,8 @@
 
 //////////////////CONSTRUCTORS//////////////////
 
-WrongCat::WrongCat(void) : _type("WrongCat") {
+WrongCat::WrongCat(void) {
+	_type = "WrongCat";
 	std::cout << "WrongCat Default constructor called..." << std::endl;
 }
 
@@ -25,10 +26,4 @@ WrongCat::~WrongCat(void) {
 
 void WrongCat::makeSound(void) const{
 	std::cout << "MIIIAAAAAAAUUUU!" << std::endl;
-}
-
-////////////GETTERS///////////
-
-std::string	WrongCat::getType() const{
-	return (this->_type);
 }

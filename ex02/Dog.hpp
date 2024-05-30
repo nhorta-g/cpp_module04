@@ -1,10 +1,10 @@
 #ifndef DOG_HPP
 # define DOG_HPP
 
-# include "Animal.hpp"
+# include "AAnimal.hpp"
 # include "Brain.hpp"
 
-class Dog: public Animal {
+class Dog: public AAnimal {
 	public:
 		Dog (void);
 		Dog (const Dog &copy);
@@ -13,11 +13,11 @@ class Dog: public Animal {
 
 		void makeSound(void) const;
 
-		void setIdea(std::string idea);
+		void setIdea(const std::string idea);
 		void showIdea(void) const;
 
 	private:
-		Brain* _dogBrain;
+		Brain* _brain;
 };
 
 #endif
