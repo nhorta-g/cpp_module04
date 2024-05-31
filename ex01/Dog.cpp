@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/30 17:50:44 by nuno              #+#    #+#             */
+/*   Updated: 2024/05/31 19:05:38 by nuno             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /*
 Shallow Copy and deep copy:
 
@@ -18,7 +30,7 @@ create a replica of the object, this purpose will not be filled by Shallow copy.
 
 Dog::Dog(void) : _brain(new Brain) {
 	_type = "Dog";
-	std::cout << "Dog with std::string parameter(Dog) constructor called..." << std::endl;
+	std::cout << "Dog constructor called..." << std::endl;
 }
 
 Dog::Dog(const Dog &copy) : Animal(copy), _brain(new Brain(*copy._brain)) {

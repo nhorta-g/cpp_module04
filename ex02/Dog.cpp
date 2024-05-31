@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/30 17:52:33 by nuno              #+#    #+#             */
+/*   Updated: 2024/05/31 19:05:16 by nuno             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "Dog.hpp"
 
 //////////////////CONSTRUCTORS//////////////////
 
 Dog::Dog(void) : _brain(new Brain) {
 	_type = "Dog";
-	std::cout << "Dog with std::string parameter(Dog) constructor called..." << std::endl;
+	std::cout << "Dog constructor called..." << std::endl;
 }
 
 Dog::Dog(const Dog &copy) : AAnimal(copy), _brain(new Brain(*copy._brain)) {

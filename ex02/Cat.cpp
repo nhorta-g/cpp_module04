@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/30 17:52:26 by nuno              #+#    #+#             */
+/*   Updated: 2024/05/31 19:09:11 by nuno             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "Cat.hpp"
 
 //////////////////CONSTRUCTORS//////////////////
 
 Cat::Cat(void) : _brain(new Brain) {
 	_type = "cat";
-	std::cout << "Cat with std::string parameter(Cat) constructor called..." << std::endl;
+	std::cout << "Cat with constructor called..." << std::endl;
 }
 
 Cat::Cat(const Cat &copy) : AAnimal(copy), _brain(new Brain(*copy._brain)) {
@@ -14,11 +26,9 @@ Cat::Cat(const Cat &copy) : AAnimal(copy), _brain(new Brain(*copy._brain)) {
 Cat& Cat::operator = (const Cat &copy) {
 	std::cout << "Cat assigment operator called." << std::endl;
 	if (this != &copy) {
-		if (this != &copy) {
-			_type = copy.getType();
-			delete _brain;
-			_brain = new Brain(*(copy._brain));
-		}
+		this->_type = copy.getType();
+		delete this->_brain;
+		_brain = new Brain(*(copy._brain));
 	}
 	return (*this);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/30 17:49:59 by nuno              #+#    #+#             */
+/*   Updated: 2024/05/31 19:08:20 by nuno             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /*
 Shallow Copy and deep copy:
 
@@ -18,7 +30,7 @@ create a replica of the object, this purpose will not be filled by Shallow copy.
 
 Cat::Cat(void) : _brain(new Brain) {
 	_type = "cat";
-	std::cout << "Cat with std::string parameter(Cat) constructor called..." << std::endl;
+	std::cout << "Cat constructor called..." << std::endl;
 }
 
 Cat::Cat(const Cat &copy) : Animal(copy), _brain(new Brain(*copy._brain)) {
@@ -28,11 +40,9 @@ Cat::Cat(const Cat &copy) : Animal(copy), _brain(new Brain(*copy._brain)) {
 Cat& Cat::operator = (const Cat &copy) {
 	std::cout << "Cat assigment operator called." << std::endl;
 	if (this != &copy) {
-		if (this != &copy) {
-			_type = copy.getType();
-			delete _brain;
-			_brain = new Brain(*(copy._brain));
-		}
+		this->_type = copy.getType();
+		delete this->_brain;
+		_brain = new Brain(*(copy._brain));
 	}
 	return (*this);
 }

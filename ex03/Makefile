@@ -5,22 +5,21 @@
 #                                                     +:+ +:+         +:+      #
 #    By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/05/30 17:51:00 by nuno              #+#    #+#              #
-#    Updated: 2024/05/30 17:51:01 by nuno             ###   ########.fr        #
+#    Created: 2024/05/30 17:49:47 by nuno              #+#    #+#              #
+#    Updated: 2024/05/31 14:50:52 by nuno             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	ex01
+NAME		=	ex03
 
 CXX			=	c++
 
 SRCS		=	main.cpp \
-				Animal.cpp \
-				Dog.cpp \
-				Cat.cpp \
-				Brain.cpp
+				AMateria.cpp \
+				Ice.cpp \
+				Cure.cpp
 
-CXXFLAGS	=	-Wall -Wextra -Werror -g -Wshadow -std=c++98
+CXXFLAGS	=	-Wall -Wextra -Werror -g -std=c++98
 
 RM			=	rm -f
 

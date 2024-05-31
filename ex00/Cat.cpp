@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/30 17:51:13 by nuno              #+#    #+#             */
+/*   Updated: 2024/05/31 19:06:01 by nuno             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "Cat.hpp"
 
 //////////////////CONSTRUCTORS//////////////////
 
 Cat::Cat(void) {
 	_type = "cat";
-	std::cout << "Cat with std::string parameter(Cat) constructor called..." << std::endl;
+	std::cout << "Cat constructor called..." << std::endl;
 }
 
 Cat::Cat(const Cat &copy) : Animal(copy) {

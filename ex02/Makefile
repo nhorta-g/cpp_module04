@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/05/30 17:52:45 by nuno              #+#    #+#              #
+#    Updated: 2024/05/30 17:52:46 by nuno             ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME		=	ex02
 
 CXX			=	c++
@@ -8,7 +20,7 @@ SRCS		=	main.cpp \
 				Cat.cpp \
 				Brain.cpp
 
-CXXFLAGS	=	-Wall -Wextra -Werror -g -Wshadow -std=c++98 -fsanitize=address
+CXXFLAGS	=	-Wall -Wextra -Werror -g -Wshadow -std=c++98
 
 RM			=	rm -f
 
