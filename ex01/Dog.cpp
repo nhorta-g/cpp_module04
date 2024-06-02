@@ -6,7 +6,7 @@
 /*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 17:50:44 by nuno              #+#    #+#             */
-/*   Updated: 2024/05/31 19:05:38 by nuno             ###   ########.fr       */
+/*   Updated: 2024/06/01 15:37:47 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ Dog::Dog(const Dog &copy) : Animal(copy), _brain(new Brain(*copy._brain)) {
 Dog& Dog::operator = (const Dog &copy) {
 	std::cout << "Dog assigment operator called..." << std::endl;
 	if (this != &copy) {
-		this->_type = copy.getType();
+		Animal::operator=(copy);
 		delete this->_brain;
 		_brain = new Brain(*(copy._brain));
 	}

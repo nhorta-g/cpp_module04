@@ -6,7 +6,7 @@
 /*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 17:52:26 by nuno              #+#    #+#             */
-/*   Updated: 2024/05/31 19:09:11 by nuno             ###   ########.fr       */
+/*   Updated: 2024/06/01 15:38:17 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Cat::Cat(const Cat &copy) : AAnimal(copy), _brain(new Brain(*copy._brain)) {
 Cat& Cat::operator = (const Cat &copy) {
 	std::cout << "Cat assigment operator called." << std::endl;
 	if (this != &copy) {
-		this->_type = copy.getType();
+		AAnimal::operator=(copy);
 		delete this->_brain;
 		_brain = new Brain(*(copy._brain));
 	}

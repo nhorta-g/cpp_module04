@@ -6,7 +6,7 @@
 /*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 21:52:12 by nuno              #+#    #+#             */
-/*   Updated: 2024/05/31 19:30:40 by nuno             ###   ########.fr       */
+/*   Updated: 2024/06/02 17:33:09 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,14 @@
 # include "AMateria.hpp"
 
 class Cure : public AMateria {
-	private:
-
 	public:
 		Cure (void);
-		Cure (const Cure &obj);
-		Cure &operator = (const Cure &obj);
-		~Cure(void);
+		Cure (Cure const &obj);
+		Cure &operator = (Cure const &obj);
+		virtual ~Cure(void);
 
-		AMateria* clone() const;
-		void use(ICharacter& target);
+		virtual AMateria* clone() const;
+		virtual void use(ICharacter& target);
 };
 
 #endif
